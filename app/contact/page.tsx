@@ -1,7 +1,7 @@
 'use client'
 
 import { ArrowLeft, ArrowRight, CheckCircle2, Clock3, Loader2, Mail, MapPin, Phone } from 'lucide-react'
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import { createClient } from '@supabase/supabase-js'
 
 // Initialize Supabase client
@@ -13,11 +13,13 @@ const supabase = createClient(
 const projectTypes = ['Website', 'Custom software', 'Branding & UI/UX', 'Social media', 'Other']
 
 const budgetRanges = [
-  '₹25,000–₹50,000',
-  '₹50,000–₹1,00,000',
-  '₹1,00,000–₹2,50,000',
-  '₹2,50,000+',
-  'Not sure yet'
+  'Under ₹50,000',
+  '₹50,000 – ₹1,00,000',
+  '₹1,00,000 – ₹2,50,000',
+  '₹2,50,000 – ₹5,00,000',
+  '₹5,00,000 – ₹10,00,000',
+  '₹10,00,000+',
+  'Flexible / Not sure yet'
 ]
 
 // Country codes with dial codes and validation patterns
@@ -104,6 +106,17 @@ export default function ContactPage() {
   const [submissionId, setSubmissionId] = useState<string | null>(null)
   const [selectedCountry, setSelectedCountry] = useState(countryCodes[0])
   const [phoneError, setPhoneError] = useState<string | null>(null)
+  const [selectedProjectType, setSelectedProjectType] = useState<string>('')
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search)
+      const serviceParam = params.get('service')
+      if (serviceParam && projectTypes.includes(serviceParam)) {
+        setSelectedProjectType(serviceParam)
+      }
+    }
+  }, [])
 
   function validatePhoneNumber(phone: string, countryCode: string): PhoneValidation {
     const country = countryCodes.find(c => c.code === countryCode)
@@ -405,6 +418,8 @@ export default function ContactPage() {
                           type="radio" 
                           name="projectType" 
                           value={type} 
+                          checked={selectedProjectType === type}
+                          onChange={() => setSelectedProjectType(type)}
                           className="peer sr-only" 
                         />
                         <span className="block rounded-full border border-[#514d57] px-4 py-2.5 text-sm font-medium text-[#aaa6b5] transition-colors peer-checked:border-[#9a5cff] peer-checked:bg-[#6417ed] peer-checked:text-[#f7f5ff]">
@@ -416,7 +431,7 @@ export default function ContactPage() {
                 </fieldset>
 
                 <label className="mt-6 flex flex-col gap-2 text-sm font-bold">
-                  Estimated budget (INR)
+                  Estimated budget (INR - ₹)
                   <select 
                     required 
                     name="budget" 
@@ -477,7 +492,7 @@ export default function ContactPage() {
               <a href="/contact" className="inline-flex w-full items-center justify-center rounded-lg bg-[#6417ed] px-7 py-4 text-sm font-bold transition-colors hover:bg-[#7727ff] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9a5cff] sm:w-fit">Start a project →</a>
             </div>
             <div className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
-              <div><p className="text-xs font-bold uppercase tracking-[0.18em] text-[#9a5cff]">Services</p><div className="mt-5 flex flex-col gap-3 text-sm text-[#aaa6b5]"><a className="hover:text-[#f7f5ff]" href="/#services">Web development</a><a className="hover:text-[#f7f5ff]" href="/#services">Custom software</a><a className="hover:text-[#f7f5ff]" href="/#services">Branding & UI/UX</a><a className="hover:text-[#f7f5ff]" href="/#services">Social media</a></div></div>
+              <div><p className="text-xs font-bold uppercase tracking-[0.18em] text-[#9a5cff]">Services</p><div className="mt-5 flex flex-col gap-3 text-sm text-[#aaa6b5]"><a className="hover:text-[#f7f5ff]" href="/services#custom-software">Custom software</a><a className="hover:text-[#f7f5ff]" href="/services#ai-automation">AI & Automation</a><a className="hover:text-[#f7f5ff]" href="/services#web-mobile-apps">Web & Mobile Apps</a><a className="hover:text-[#f7f5ff]" href="/services#branding-uiux">Branding & UI/UX</a><a className="hover:text-[#f7f5ff]" href="/services#social-media-growth">Social media</a></div></div>
               <div><p className="text-xs font-bold uppercase tracking-[0.18em] text-[#9a5cff]">Company</p><div className="mt-5 flex flex-col gap-3 text-sm text-[#aaa6b5]"><a className="hover:text-[#f7f5ff]" href="/about">About us</a><a className="hover:text-[#f7f5ff]" href="/#work">Our work</a><a className="hover:text-[#f7f5ff]" href="/contact">Contact us</a></div></div>
               <div><p className="text-xs font-bold uppercase tracking-[0.18em] text-[#9a5cff]">Legal</p><div className="mt-5 flex flex-col gap-3 text-sm text-[#aaa6b5]"><a className="hover:text-[#f7f5ff]" href="/privacy-policy">Privacy policy</a><a className="hover:text-[#f7f5ff]" href="/terms-and-conditions">Terms & conditions</a></div></div>
               <div><p className="text-xs font-bold uppercase tracking-[0.18em] text-[#9a5cff]">Get in touch</p><div className="mt-5 flex flex-col gap-3 text-sm text-[#aaa6b5]"><a className="break-all hover:text-[#f7f5ff]" href="mailto:hello@dssoftwares.in">hello@dssoftwares.in</a><a className="hover:text-[#f7f5ff]" href="tel:+919956688553">+91 99566 88553</a><p>Available worldwide</p><p>Mon–Fri · 9:00–18:00</p></div></div>

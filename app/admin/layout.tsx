@@ -1,12 +1,19 @@
-// app/admin/layout.tsx
+'use client'
+
+import React from 'react'
+import { AdminProvider } from '@/components/admin/AdminContext'
+import AdminAuthGuard from '@/components/admin/AdminAuthGuard'
+
 export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <div className="admin-root">
-      {children}
-    </div>
+    <AdminProvider>
+      <AdminAuthGuard>
+        {children}
+      </AdminAuthGuard>
+    </AdminProvider>
   )
 }

@@ -424,7 +424,7 @@ export default function Page() {
         </a>
         <nav aria-label="Primary navigation" className="hidden items-center gap-9 text-sm font-medium text-[#aaa6b5] md:flex">
           <a className="transition-colors hover:text-[#f7f5ff]" href="#home">Home</a>
-          <a className="transition-colors hover:text-[#f7f5ff]" href="#services">Services</a>
+          <a className="transition-colors hover:text-[#f7f5ff]" href="/services">Services</a>
           <a className="transition-colors hover:text-[#f7f5ff]" href="#work">Work</a>
           {testimonials.length > 0 && (
             <a className="transition-colors hover:text-[#f7f5ff]" href="#testimonials">Testimonials</a>
@@ -440,7 +440,7 @@ export default function Page() {
         </button>
         {menuOpen && (
           <nav className="absolute left-4 right-4 top-16 flex flex-col gap-1 rounded-xl border border-[#3f3b49] bg-[#111013] p-3 text-sm shadow-2xl sm:left-6 sm:right-6 sm:top-20 md:hidden">
-            <a href="#services" onClick={() => setMenuOpen(false)}>Services</a>
+            <a href="/services" onClick={() => setMenuOpen(false)}>Services</a>
             <a href="#work" onClick={() => setMenuOpen(false)}>Work</a>
             {testimonials.length > 0 && (
               <a href="#testimonials" onClick={() => setMenuOpen(false)}>Testimonials</a>
@@ -505,6 +505,14 @@ export default function Page() {
                 </article>
               )
             })}
+          </div>
+          <div className="mt-12 text-center">
+            <a
+              href="/services"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#6417ed] px-6 sm:px-8 py-3 sm:py-4 text-sm font-bold transition-colors hover:bg-[#7727ff]"
+            >
+              Explore All Services & Capabilities <ArrowUpRight size={17} />
+            </a>
           </div>
         </div>
       </section>
@@ -642,10 +650,12 @@ export default function Page() {
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#9a5cff]">Services</p>
               <div className="mt-5 flex flex-col gap-3 text-sm text-[#aaa6b5]">
-                <a className="hover:text-[#f7f5ff]" href="/#services">Web development</a>
-                <a className="hover:text-[#f7f5ff]" href="/#services">Custom software</a>
-                <a className="hover:text-[#f7f5ff]" href="/#services">Branding & UI/UX</a>
-                <a className="hover:text-[#f7f5ff]" href="/#services">Social media</a>
+                <a className="hover:text-[#f7f5ff]" href="/services#custom-software">Custom software</a>
+                <a className="hover:text-[#f7f5ff]" href="/services#ai-automation">AI & Automation</a>
+                <a className="hover:text-[#f7f5ff]" href="/services#cloud-devops">Cloud & DevOps</a>
+                <a className="hover:text-[#f7f5ff]" href="/services#branding-uiux">Branding & UI/UX</a>
+                <a className="hover:text-[#f7f5ff]" href="/services#web-mobile-apps">Web & Mobile Apps</a>
+                <a className="hover:text-[#f7f5ff]" href="/services#social-media-growth">Social media</a>
               </div>
             </div>
             <div>

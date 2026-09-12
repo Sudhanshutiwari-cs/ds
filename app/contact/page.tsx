@@ -218,86 +218,86 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#050506] font-sans text-[#f7f5ff] selection:bg-[#7727ff]">
-      <header className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4 sm:h-24 sm:px-6 lg:px-8">
+    <main className="min-h-screen w-full overflow-x-hidden bg-[#050506] font-sans text-[#f7f5ff] selection:bg-[#7727ff]">
+      <header className="mx-auto flex h-16 sm:h-20 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <a href="/" aria-label="DS Softwares home" className="text-xl font-black tracking-[-0.04em] sm:text-2xl">
           <span className="text-[#7727ff]">DS</span>Softwares<span className="text-[#7727ff]">.</span>
         </a>
-        <a href="/" className="inline-flex items-center gap-2 text-sm font-bold text-[#aaa6b5] transition-colors hover:text-[#f7f5ff]">
-          <ArrowLeft size={17} /> Back home
+        <a href="/" className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#aaa6b5] transition-colors hover:text-[#f7f5ff] py-2 px-1">
+          <ArrowLeft size={16} /> Back home
         </a>
       </header>
 
-      <section className="relative px-4 pb-16 pt-12 sm:px-6 sm:pb-24 sm:pt-16 lg:pt-24">
-        <div aria-hidden="true" className="pointer-events-none absolute -right-48 top-0 h-[560px] w-[560px] rounded-full bg-[#5014b8] opacity-30 blur-3xl" />
-        <div className="relative mx-auto grid max-w-6xl gap-14 lg:grid-cols-[.85fr_1.15fr] lg:gap-20">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-[0.22em] text-[#a77aff]">Start a project</p>
-            <h1 className="mt-5 text-balance text-4xl font-black leading-[1.08] tracking-[-0.045em] min-[380px]:text-5xl sm:mt-6 sm:text-6xl">
+      <section className="relative overflow-hidden px-4 pb-16 pt-8 sm:px-6 sm:pb-24 sm:pt-14 lg:pt-20">
+        <div aria-hidden="true" className="pointer-events-none absolute -right-36 sm:-right-48 top-0 h-[400px] w-[400px] sm:h-[560px] sm:w-[560px] rounded-full bg-[#5014b8] opacity-25 sm:opacity-30 blur-3xl" />
+        <div className="relative mx-auto grid max-w-6xl gap-10 sm:gap-14 lg:grid-cols-[.85fr_1.15fr] lg:gap-16 xl:gap-20">
+          <div className="min-w-0">
+            <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.22em] text-[#a77aff]">Start a project</p>
+            <h1 className="mt-3 sm:mt-5 text-balance text-3xl font-black leading-[1.1] tracking-[-0.04em] min-[380px]:text-4xl sm:text-5xl lg:text-6xl">
               Tell us what you want to build.
             </h1>
-            <p className="mt-7 max-w-lg text-pretty text-lg leading-relaxed text-[#c2becb]">
+            <p className="mt-4 sm:mt-6 max-w-lg text-base sm:text-lg leading-relaxed text-[#c2becb]">
               Share the challenge, the idea, or the goal. We&apos;ll help you find the right way forward.
             </p>
 
-            <div className="mt-12 flex flex-col gap-4">
-              <a href="mailto:hello@dssoftwares.in" className="flex min-w-0 items-center gap-3 rounded-2xl border border-[#514d57] bg-[#111013] p-4 transition-colors hover:border-[#7727ff] sm:gap-4 sm:p-5">
-                <span className="flex size-11 items-center justify-center rounded-xl bg-[#6417ed]">
-                  <Mail size={20} />
+            <div className="mt-8 sm:mt-12 flex flex-col gap-3 sm:gap-4">
+              <a href="mailto:hello@dssoftwares.in" className="flex min-w-0 items-center gap-3 sm:gap-4 rounded-2xl border border-[#514d57] bg-[#111013] p-3.5 sm:p-5 transition-colors hover:border-[#7727ff]">
+                <span className="flex size-10 sm:size-11 shrink-0 items-center justify-center rounded-xl bg-[#6417ed]">
+                  <Mail size={18} className="sm:size-5" />
                 </span>
-                <span className="min-w-0">
-                  <span className="block text-xs font-bold uppercase tracking-[0.14em] text-[#77727f]">Email</span>
-                  <span className="mt-1 block break-all font-bold">hello@dssoftwares.in</span>
-                </span>
-              </a>
-              <a href="tel:+919956688553" className="flex items-center gap-4 rounded-2xl border border-[#514d57] bg-[#111013] p-5 transition-colors hover:border-[#7727ff]">
-                <span className="flex size-11 items-center justify-center rounded-xl bg-[#6417ed]">
-                  <Phone size={20} />
-                </span>
-                <span>
-                  <span className="block text-xs font-bold uppercase tracking-[0.14em] text-[#77727f]">Phone</span>
-                  <span className="mt-1 block font-bold">+91 99566 88553</span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] text-[#77727f]">Email</span>
+                  <span className="mt-0.5 sm:mt-1 block truncate font-bold text-sm sm:text-base">hello@dssoftwares.in</span>
                 </span>
               </a>
-              <div className="flex items-center gap-4 rounded-2xl border border-[#514d57] bg-[#111013] p-5">
-                <span className="flex size-11 items-center justify-center rounded-xl bg-[#6417ed]">
-                  <Clock3 size={20} />
+              <a href="tel:+919956688553" className="flex min-w-0 items-center gap-3 sm:gap-4 rounded-2xl border border-[#514d57] bg-[#111013] p-3.5 sm:p-5 transition-colors hover:border-[#7727ff]">
+                <span className="flex size-10 sm:size-11 shrink-0 items-center justify-center rounded-xl bg-[#6417ed]">
+                  <Phone size={18} className="sm:size-5" />
                 </span>
-                <span>
-                  <span className="block text-xs font-bold uppercase tracking-[0.14em] text-[#77727f]">Response time</span>
-                  <span className="mt-1 block font-bold">Within one business day</span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] text-[#77727f]">Phone</span>
+                  <span className="mt-0.5 sm:mt-1 block font-bold text-sm sm:text-base">+91 99566 88553</span>
+                </span>
+              </a>
+              <div className="flex min-w-0 items-center gap-3 sm:gap-4 rounded-2xl border border-[#514d57] bg-[#111013] p-3.5 sm:p-5">
+                <span className="flex size-10 sm:size-11 shrink-0 items-center justify-center rounded-xl bg-[#6417ed]">
+                  <Clock3 size={18} className="sm:size-5" />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] text-[#77727f]">Response time</span>
+                  <span className="mt-0.5 sm:mt-1 block font-bold text-sm sm:text-base">Within one business day</span>
                 </span>
               </div>
-              <div className="flex items-center gap-4 rounded-2xl border border-[#514d57] bg-[#111013] p-5">
-                <span className="flex size-11 items-center justify-center rounded-xl bg-[#6417ed]">
-                  <MapPin size={20} />
+              <div className="flex min-w-0 items-center gap-3 sm:gap-4 rounded-2xl border border-[#514d57] bg-[#111013] p-3.5 sm:p-5">
+                <span className="flex size-10 sm:size-11 shrink-0 items-center justify-center rounded-xl bg-[#6417ed]">
+                  <MapPin size={18} className="sm:size-5" />
                 </span>
-                <span>
-                  <span className="block text-xs font-bold uppercase tracking-[0.14em] text-[#77727f]">Location</span>
-                  <span className="mt-1 block font-bold">Working with clients worldwide</span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] text-[#77727f]">Location</span>
+                  <span className="mt-0.5 sm:mt-1 block font-bold text-sm sm:text-base">Working with clients worldwide</span>
                 </span>
               </div>
             </div>
 
-            <div className="mt-10 border-l-2 border-[#7727ff] pl-5">
+            <div className="mt-8 sm:mt-10 border-l-2 border-[#7727ff] pl-4 sm:pl-5">
               <p className="text-sm font-bold">What happens next?</p>
-              <p className="mt-2 text-sm leading-relaxed text-[#aaa6b5]">
+              <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-relaxed text-[#aaa6b5]">
                 We&apos;ll review your brief, follow up with any questions, and arrange a focused discovery call.
               </p>
             </div>
           </div>
 
-          <div className="min-w-0 rounded-3xl border border-[#514d57] bg-[#111013] p-4 min-[380px]:p-5 sm:p-9">
+          <div className="min-w-0 rounded-2xl sm:rounded-3xl border border-[#514d57] bg-[#111013] p-4 min-[420px]:p-6 sm:p-8 lg:p-9">
             {submitted ? (
-              <div role="status" className="flex min-h-[620px] flex-col items-center justify-center text-center">
-                <span className="flex size-16 items-center justify-center rounded-full bg-[#6417ed]">
-                  <CheckCircle2 size={32} />
+              <div role="status" className="flex min-h-[420px] sm:min-h-[560px] flex-col items-center justify-center text-center px-2 py-6">
+                <span className="flex size-14 sm:size-16 items-center justify-center rounded-full bg-[#6417ed]">
+                  <CheckCircle2 size={28} className="sm:size-8" />
                 </span>
-                <h2 className="mt-7 text-3xl font-black tracking-tight">Your inquiry is ready.</h2>
-                <p className="mt-4 max-w-md text-sm leading-relaxed text-[#aaa6b5]">
+                <h2 className="mt-5 sm:mt-7 text-2xl sm:text-3xl font-black tracking-tight">Your inquiry is ready.</h2>
+                <p className="mt-3 sm:mt-4 max-w-md text-sm sm:text-base leading-relaxed text-[#aaa6b5]">
                   Thank you for reaching out! We&apos;ve received your inquiry and will get back to you within one business day.
                   {submissionId && (
-                    <span className="mt-2 block text-xs text-[#77727f]">
+                    <span className="mt-3 block font-mono text-xs text-[#9a5cff]">
                       Reference ID: {submissionId.slice(0, 8)}
                     </span>
                   )}
@@ -309,64 +309,64 @@ export default function ContactPage() {
                     setSubmissionId(null)
                     setError(null)
                   }} 
-                  className="mt-8 rounded-lg border border-[#716d78] px-6 py-3 text-sm font-bold hover:border-[#f7f5ff]"
+                  className="mt-6 sm:mt-8 w-full sm:w-auto rounded-xl border border-[#716d78] px-6 py-3 text-sm font-bold transition-colors hover:border-[#f7f5ff] hover:bg-[#1f1d24]"
                 >
                   Create another inquiry
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
-                <div className="flex flex-col gap-3 min-[420px]:flex-row min-[420px]:items-end min-[420px]:justify-between">
+                <div className="flex flex-col gap-2 min-[480px]:flex-row min-[480px]:items-end min-[480px]:justify-between">
                   <div>
                     <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#9a5cff]">Project inquiry</p>
-                    <h2 className="mt-2 text-xl font-black min-[380px]:text-2xl">A few details to get started.</h2>
+                    <h2 className="mt-1 sm:mt-2 text-xl sm:text-2xl font-black">A few details to get started.</h2>
                   </div>
-                  <span className="text-xs text-[#77727f]">All fields required unless marked optional</span>
+                  <span className="text-[11px] sm:text-xs text-[#77727f]">All fields required unless marked optional</span>
                 </div>
 
                 {error && (
-                  <div className="mt-6 rounded-xl border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-400">
+                  <div className="mt-5 sm:mt-6 rounded-xl border border-red-500/30 bg-red-500/10 p-3.5 sm:p-4 text-xs sm:text-sm text-red-400">
                     {error}
                   </div>
                 )}
 
-                <div className="mt-8 grid gap-5 sm:grid-cols-2">
-                  <label className="flex flex-col gap-2 text-sm font-bold">
+                <div className="mt-6 sm:mt-8 grid gap-4 sm:gap-5 sm:grid-cols-2">
+                  <label className="flex flex-col gap-2 text-xs sm:text-sm font-bold">
                     Your name
                     <input 
                       required 
                       name="name" 
                       autoComplete="name" 
-                      className="rounded-xl border border-[#514d57] bg-[#09080b] px-4 py-3.5 text-base font-normal outline-none transition-colors placeholder:text-[#77727f] focus:border-[#9a5cff]" 
+                      className="rounded-xl border border-[#514d57] bg-[#09080b] px-3.5 py-3 sm:px-4 sm:py-3.5 text-sm sm:text-base font-normal outline-none transition-colors placeholder:text-[#77727f] focus:border-[#9a5cff]" 
                       placeholder="Jane Smith" 
                     />
                   </label>
-                  <label className="flex flex-col gap-2 text-sm font-bold">
+                  <label className="flex flex-col gap-2 text-xs sm:text-sm font-bold">
                     Work email
                     <input 
                       required 
                       type="email" 
                       name="email" 
                       autoComplete="email" 
-                      className="rounded-xl border border-[#514d57] bg-[#09080b] px-4 py-3.5 text-base font-normal outline-none transition-colors placeholder:text-[#77727f] focus:border-[#9a5cff]" 
+                      className="rounded-xl border border-[#514d57] bg-[#09080b] px-3.5 py-3 sm:px-4 sm:py-3.5 text-sm sm:text-base font-normal outline-none transition-colors placeholder:text-[#77727f] focus:border-[#9a5cff]" 
                       placeholder="jane@company.com" 
                     />
                   </label>
                 </div>
 
-                <div className="mt-5 grid gap-5 sm:grid-cols-2">
-                  <label className="flex flex-col gap-2 text-sm font-bold">
+                <div className="mt-4 sm:mt-5 grid gap-4 sm:gap-5 sm:grid-cols-2">
+                  <label className="flex flex-col gap-2 text-xs sm:text-sm font-bold">
                     Company name
                     <input 
                       required 
                       name="company" 
                       autoComplete="organization" 
-                      className="rounded-xl border border-[#514d57] bg-[#09080b] px-4 py-3.5 text-base font-normal outline-none transition-colors placeholder:text-[#77727f] focus:border-[#9a5cff]" 
+                      className="rounded-xl border border-[#514d57] bg-[#09080b] px-3.5 py-3 sm:px-4 sm:py-3.5 text-sm sm:text-base font-normal outline-none transition-colors placeholder:text-[#77727f] focus:border-[#9a5cff]" 
                       placeholder="Your company" 
                     />
                   </label>
                   <div className="flex flex-col gap-2">
-                    <span className="text-sm font-bold">
+                    <span className="text-xs sm:text-sm font-bold">
                       Phone <span className="text-xs font-normal text-[#77727f]">(optional)</span>
                     </span>
                     <div className="flex gap-2">
@@ -378,7 +378,7 @@ export default function ContactPage() {
                           setSelectedCountry(country || countryCodes[0])
                           setPhoneError(null)
                         }}
-                        className="w-[120px] rounded-xl border border-[#514d57] bg-[#09080b] px-3 py-3.5 text-base font-normal outline-none transition-colors focus:border-[#9a5cff]"
+                        className="w-[105px] min-[380px]:w-[120px] shrink-0 rounded-xl border border-[#514d57] bg-[#09080b] px-2.5 py-3 sm:px-3 sm:py-3.5 text-xs sm:text-sm font-normal outline-none transition-colors focus:border-[#9a5cff]"
                       >
                         {countryCodes.map((country) => (
                           <option key={country.code + country.country} value={country.code}>
@@ -392,7 +392,7 @@ export default function ContactPage() {
                         autoComplete="tel" 
                         placeholder={selectedCountry.placeholder}
                         onChange={() => setPhoneError(null)}
-                        className={`flex-1 rounded-xl border bg-[#09080b] px-4 py-3.5 text-base font-normal outline-none transition-colors placeholder:text-[#77727f] focus:border-[#9a5cff] ${
+                        className={`min-w-0 flex-1 rounded-xl border bg-[#09080b] px-3.5 py-3 sm:px-4 sm:py-3.5 text-sm sm:text-base font-normal outline-none transition-colors placeholder:text-[#77727f] focus:border-[#9a5cff] ${
                           phoneError ? 'border-red-500' : 'border-[#514d57]'
                         }`}
                       />
@@ -401,15 +401,15 @@ export default function ContactPage() {
                       <span className="text-xs text-red-400">{phoneError}</span>
                     )}
                     {!phoneError && (
-                      <span className="text-xs text-[#77727f]">
+                      <span className="text-[11px] sm:text-xs text-[#77727f] truncate">
                         {selectedCountry.country}: {selectedCountry.placeholder}
                       </span>
                     )}
                   </div>
                 </div>
 
-                <fieldset className="mt-6">
-                  <legend className="text-sm font-bold">What can we help with?</legend>
+                <fieldset className="mt-5 sm:mt-6">
+                  <legend className="text-xs sm:text-sm font-bold">What can we help with?</legend>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {projectTypes.map((type) => (
                       <label key={type} className="cursor-pointer">
@@ -422,7 +422,7 @@ export default function ContactPage() {
                           onChange={() => setSelectedProjectType(type)}
                           className="peer sr-only" 
                         />
-                        <span className="block rounded-full border border-[#514d57] px-4 py-2.5 text-sm font-medium text-[#aaa6b5] transition-colors peer-checked:border-[#9a5cff] peer-checked:bg-[#6417ed] peer-checked:text-[#f7f5ff]">
+                        <span className="inline-block rounded-full border border-[#514d57] px-3.5 py-2 text-xs sm:px-4 sm:py-2.5 sm:text-sm font-medium text-[#aaa6b5] transition-colors peer-checked:border-[#9a5cff] peer-checked:bg-[#6417ed] peer-checked:text-[#f7f5ff]">
                           {type}
                         </span>
                       </label>
@@ -430,13 +430,13 @@ export default function ContactPage() {
                   </div>
                 </fieldset>
 
-                <label className="mt-6 flex flex-col gap-2 text-sm font-bold">
+                <label className="mt-5 sm:mt-6 flex flex-col gap-2 text-xs sm:text-sm font-bold">
                   Estimated budget (INR - ₹)
                   <select 
                     required 
                     name="budget" 
                     defaultValue="" 
-                    className="rounded-xl border border-[#514d57] bg-[#09080b] px-4 py-3.5 text-base font-normal outline-none transition-colors focus:border-[#9a5cff]"
+                    className="w-full rounded-xl border border-[#514d57] bg-[#09080b] px-3.5 py-3 sm:px-4 sm:py-3.5 text-sm sm:text-base font-normal outline-none transition-colors focus:border-[#9a5cff]"
                   >
                     <option value="" disabled>Select a range</option>
                     {budgetRanges.map((range) => (
@@ -445,13 +445,13 @@ export default function ContactPage() {
                   </select>
                 </label>
 
-                <label className="mt-5 flex flex-col gap-2 text-sm font-bold">
+                <label className="mt-4 sm:mt-5 flex flex-col gap-2 text-xs sm:text-sm font-bold">
                   Tell us about your project
                   <textarea 
                     required 
                     name="message" 
-                    rows={5} 
-                    className="resize-y rounded-xl border border-[#514d57] bg-[#09080b] px-4 py-3.5 text-base font-normal leading-relaxed outline-none transition-colors placeholder:text-[#77727f] focus:border-[#9a5cff]" 
+                    rows={4} 
+                    className="w-full resize-y rounded-xl border border-[#514d57] bg-[#09080b] px-3.5 py-3 sm:px-4 sm:py-3.5 text-sm sm:text-base font-normal leading-relaxed outline-none transition-colors placeholder:text-[#77727f] focus:border-[#9a5cff]" 
                     placeholder="What are you building, who is it for, and what does success look like?" 
                   />
                 </label>
@@ -459,7 +459,7 @@ export default function ContactPage() {
                 <button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#6417ed] px-7 py-4 text-sm font-bold transition-colors hover:bg-[#7727ff] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9a5cff] disabled:cursor-not-allowed disabled:opacity-50"
+                  className="mt-6 sm:mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#6417ed] px-6 py-3.5 sm:py-4 text-sm sm:text-base font-bold transition-all active:scale-[0.99] hover:bg-[#7727ff] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9a5cff] disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <>
@@ -473,7 +473,7 @@ export default function ContactPage() {
                   )}
                 </button>
 
-                <p className="mt-4 text-center text-xs leading-relaxed text-[#77727f]">
+                <p className="mt-3.5 sm:mt-4 text-center text-[11px] sm:text-xs leading-relaxed text-[#77727f]">
                   Your information is securely stored and will only be used to respond to your inquiry.
                 </p>
               </form>

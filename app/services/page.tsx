@@ -45,6 +45,8 @@ interface ServiceItem {
   category: 'Software' | 'AI & ML' | 'Cloud' | 'Design' | 'Web & Mobile' | 'Growth'
   description: string
   icon: any
+  image: string
+  imageAlt: string
   capabilities: string[]
   technologies: string[]
   deliverables: string[]
@@ -63,6 +65,8 @@ const detailedServices: ServiceItem[] = [
     description:
       'We engineer rock-solid, scalable backends, internal tools, and enterprise platforms custom-tailored to solve your specific operational bottlenecks.',
     icon: Code2,
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Custom software development backend code and engineering workspace',
     capabilities: [
       'End-to-end backend & distributed systems architecture',
       'High-throughput RESTful, GraphQL & gRPC APIs',
@@ -91,6 +95,8 @@ const detailedServices: ServiceItem[] = [
     description:
       'Turn cutting-edge generative AI and predictive intelligence into real business leverage that slashes manual tasks and creates magical customer interactions.',
     icon: Sparkles,
+    image: 'https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Artificial intelligence neural network and autonomous agents pipeline',
     capabilities: [
       'Custom LLM application development with RAG (Retrieval-Augmented Generation)',
       'Autonomous AI agent workflows for customer support & sales pipeline',
@@ -119,6 +125,8 @@ const detailedServices: ServiceItem[] = [
     description:
       'We design, optimize, and manage resilient cloud environments that scale effortlessly on demand while lowering cloud infrastructure expenditures.',
     icon: Cloud,
+    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Cloud infrastructure datacenter global network and server architecture',
     capabilities: [
       'Multi-cloud architecture design (AWS, Google Cloud, Azure)',
       'Infrastructure as Code (Terraform, CloudFormation, Ansible)',
@@ -147,6 +155,8 @@ const detailedServices: ServiceItem[] = [
     description:
       'We turn complex digital interactions into clean, intuitive, and memorable user experiences that elevate your brand and maximize retention.',
     icon: Palette,
+    image: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'UI UX design wireframing, typography and mobile app interface prototypes',
     capabilities: [
       'Deep user research, competitor auditing & customer journey mapping',
       'Information architecture, wireframes, & clickable interactive prototypes',
@@ -175,6 +185,8 @@ const detailedServices: ServiceItem[] = [
     description:
       'From responsive SaaS applications to cross-platform mobile apps on iOS and Android, we build blazing-fast interfaces with flawless performance.',
     icon: Smartphone,
+    image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Web application dashboard and cross-platform mobile interface',
     capabilities: [
       'Full-stack Next.js and React applications with server components',
       'Cross-platform iOS and Android apps with React Native & Expo',
@@ -203,6 +215,8 @@ const detailedServices: ServiceItem[] = [
     description:
       'We craft strategic content, run profitable paid customer acquisition campaigns, and build loyal online communities that translate directly into revenue.',
     icon: TrendingUp,
+    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Social media marketing campaigns, content engagement and growth metrics',
     capabilities: [
       'Full-funnel organic social media management and content calendars',
       'High-impact short-form video creation (Reels, Shorts, TikTok)',
@@ -456,6 +470,39 @@ export default function ServicesPage() {
               <CheckCircle2 size={16} className="text-[#7727ff]" /> Agile 2-Week Sprints
             </span>
           </div>
+
+          {/* Visual Capabilities Quick-Navigator */}
+          <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6 text-left">
+            {detailedServices.map((svc) => {
+              const SvcIcon = svc.icon
+              return (
+                <a
+                  key={svc.id}
+                  href={`#${svc.id}`}
+                  className="group/nav relative flex flex-col justify-end overflow-hidden rounded-2xl border border-[#2b2735] bg-[#111013] p-2.5 transition-all hover:border-[#7727ff] hover:shadow-[0_0_20px_#7727ff44]"
+                >
+                  <div className="relative h-24 w-full overflow-hidden rounded-xl bg-[#16141c]">
+                    <img
+                      src={svc.image}
+                      alt={svc.name}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover/nav:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#111013] via-[#111013]/40 to-transparent" />
+                    <span className="absolute bottom-1.5 left-2 flex size-6 items-center justify-center rounded-md bg-black/70 text-[#a77aff] backdrop-blur-sm border border-white/10">
+                      <SvcIcon size={12} />
+                    </span>
+                  </div>
+                  <div className="mt-2 px-1 flex items-center justify-between">
+                    <span className="truncate text-xs font-bold text-white group-hover/nav:text-[#a77aff]">
+                      {svc.category}
+                    </span>
+                    <ArrowRight size={12} className="text-[#aaa6b5] transition-transform group-hover/nav:translate-x-0.5 group-hover/nav:text-[#a77aff] shrink-0" />
+                  </div>
+                </a>
+              )
+            })}
+          </div>
         </div>
       </section>
 
@@ -491,7 +538,7 @@ export default function ServicesPage() {
               <article
                 id={service.id}
                 key={service.id}
-                className="group relative overflow-hidden rounded-3xl border border-[#3f3b49] bg-[#111013] p-6 transition-all hover:border-[#7727ff88] sm:p-10 lg:p-12"
+                className="group relative overflow-hidden rounded-3xl border border-[#3f3b49] bg-[#111013] transition-all hover:border-[#7727ff88]"
               >
                 {/* Glow accent */}
                 <div
@@ -499,23 +546,61 @@ export default function ServicesPage() {
                   className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#6417ed18] blur-3xl transition-opacity group-hover:bg-[#6417ed30]"
                 />
 
-                <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
-                  {/* Left column: Overview */}
-                  <div className="lg:col-span-7">
-                    <div className="flex flex-wrap items-center gap-3">
-                      <span className="flex size-12 items-center justify-center rounded-2xl bg-[#6417ed25] text-[#9a5cff] border border-[#7727ff40]">
+                {/* Service Unsplash Visual Banner */}
+                <div className="relative h-60 sm:h-72 lg:h-80 w-full overflow-hidden border-b border-[#2a2633] bg-[#0c0b0f]">
+                  <img
+                    src={service.image}
+                    alt={service.imageAlt || service.name}
+                    loading="lazy"
+                    className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  {/* Atmospheric dark gradient overlays */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111013] via-[#111013]/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#111013]/80 via-[#111013]/25 to-transparent hidden sm:block" />
+
+                  {/* Badges and metadata over the image */}
+                  <div className="absolute bottom-4 left-5 right-5 sm:bottom-6 sm:left-8 sm:right-8 flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <span className="flex size-12 items-center justify-center rounded-2xl border border-white/15 bg-[#09080b]/85 text-[#a77aff] shadow-2xl backdrop-blur-md">
                         <Icon size={24} />
                       </span>
-                      <span className="rounded-full bg-[#201d29] px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#a77aff]">
-                        {service.category}
-                      </span>
-                      <span className="text-xs text-[#7f7a8b]">Typical delivery: {service.timeline}</span>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <span className="rounded-full border border-[#7727ff]/50 bg-[#6417ed]/40 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#e2d5ff] backdrop-blur-md">
+                            {service.category}
+                          </span>
+                          <span className="rounded-full border border-white/10 bg-black/60 px-3 py-1 text-xs font-medium text-[#aaa6b5] backdrop-blur-md hidden sm:inline-block">
+                            Typical delivery: {service.timeline}
+                          </span>
+                        </div>
+                        <h3 className="mt-1 text-sm font-semibold text-white/90 drop-shadow-md hidden sm:block">
+                          {service.subtitle}
+                        </h3>
+                      </div>
                     </div>
 
-                    <h2 className="mt-5 text-2xl font-black tracking-tight sm:text-3xl lg:text-4xl">{service.name}</h2>
-                    <p className="mt-2 text-sm font-semibold text-[#a77aff] sm:text-base">{service.subtitle}</p>
+                    <div className="hidden sm:flex items-center gap-2 rounded-xl border border-white/10 bg-black/70 px-3.5 py-2 text-xs font-semibold text-[#f7f5ff] backdrop-blur-md">
+                      <span className="size-2 rounded-full bg-[#22c55e] shadow-[0_0_8px_#22c55e]" />
+                      <span>Available for Projects</span>
+                    </div>
+                  </div>
+                </div>
 
-                    <p className="mt-4 text-sm leading-relaxed text-[#c2becb] sm:text-base">{service.description}</p>
+                <div className="p-6 sm:p-10 lg:p-12">
+                  <div className="grid gap-8 lg:grid-cols-12 lg:gap-12">
+                    {/* Left column: Overview */}
+                    <div className="lg:col-span-7">
+                      <div className="flex flex-wrap items-center gap-3 sm:hidden mb-4">
+                        <span className="rounded-full bg-[#201d29] px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#a77aff]">
+                          {service.category}
+                        </span>
+                        <span className="text-xs text-[#7f7a8b]">Delivery: {service.timeline}</span>
+                      </div>
+
+                      <h2 className="text-2xl font-black tracking-tight sm:text-3xl lg:text-4xl">{service.name}</h2>
+                      <p className="mt-2 text-sm font-semibold text-[#a77aff] sm:text-base sm:hidden">{service.subtitle}</p>
+
+                      <p className="mt-4 text-sm leading-relaxed text-[#c2becb] sm:text-base">{service.description}</p>
 
                     {/* Capabilities list */}
                     <div className="mt-8">
@@ -578,7 +663,8 @@ export default function ServicesPage() {
                     </div>
                   </div>
                 </div>
-              </article>
+              </div>
+            </article>
             )
           })}
         </div>

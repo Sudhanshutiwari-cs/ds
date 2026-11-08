@@ -100,7 +100,7 @@ export default function AdminSettingsPage() {
       for (const update of updates) {
         await supabase
           .from('site_settings')
-          .upsert(update, { onConflict: 'setting_key' })
+          .upsert(update as any, { onConflict: 'setting_key' })
       }
 
       setSuccess('Site settings saved successfully!')

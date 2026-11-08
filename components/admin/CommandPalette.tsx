@@ -13,7 +13,20 @@ import {
   Settings,
   ExternalLink,
   ArrowRight,
-  Sparkles
+  Sparkles,
+  GraduationCap,
+  Layers,
+  CheckSquare,
+  Banknote,
+  Award,
+  Calendar,
+  MessageSquare,
+  Trophy,
+  GitPullRequest,
+  Target,
+  Users,
+  BookOpen,
+  Bell
 } from 'lucide-react'
 import { useAdmin } from './AdminContext'
 
@@ -37,7 +50,7 @@ export default function CommandPalette() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault()
-        setCommandPaletteOpen(prev => !prev)
+        setCommandPaletteOpen(!commandPaletteOpen)
       } else if (e.key === 'Escape') {
         setCommandPaletteOpen(false)
       }
@@ -55,18 +68,35 @@ export default function CommandPalette() {
   }, [commandPaletteOpen])
 
   const results = useMemo(() => {
+    const allPages = [
+      { name: 'Dashboard', href: '/admin', icon: Sparkles },
+      { name: 'Internship Applications', href: '/admin/crm/applications', icon: GraduationCap },
+      { name: 'Batches & Squads', href: '/admin/crm/batches', icon: Layers },
+      { name: 'Tasks Kanban', href: '/admin/crm/tasks', icon: CheckSquare },
+      { name: 'Developer XP & Leaderboard', href: '/admin/crm/leaderboard', icon: Trophy },
+      { name: 'PR & Code Reviews', href: '/admin/crm/reviews', icon: GitPullRequest },
+      { name: 'Skill Matrix & PPO Pipeline', href: '/admin/crm/evaluations', icon: Target },
+      { name: '1:1 Mentorship & Retro', href: '/admin/crm/mentorship', icon: Users },
+      { name: 'Technical Academy (LMS)', href: '/admin/crm/academy', icon: BookOpen },
+      { name: 'Daily Standups', href: '/admin/crm/standups', icon: MessageSquare },
+      { name: 'Leaves & Attendance', href: '/admin/crm/leaves', icon: Calendar },
+      { name: 'Stipends & Payslips', href: '/admin/crm/payslips', icon: Banknote },
+      { name: 'Certificates & LOR', href: '/admin/crm/certificates', icon: Award },
+      { name: 'Slack & Discord Webhooks', href: '/admin/crm/integrations', icon: Bell },
+      { name: 'Public Credential Verification', href: '/verify', icon: ExternalLink, external: true },
+      { name: 'Intern Portal', href: '/portal', icon: ExternalLink, external: true },
+      { name: 'Projects', href: '/admin/projects', icon: FolderKanban },
+      { name: 'Services', href: '/admin/services', icon: Wrench },
+      { name: 'Client Inquiries', href: '/admin/contacts', icon: Inbox },
+      { name: 'Blog Posts', href: '/admin/blog', icon: Newspaper },
+      { name: 'Team Members', href: '/admin/team', icon: Users2 },
+      { name: 'Site Settings', href: '/admin/settings', icon: Settings },
+      { name: 'Live Website', href: '/', icon: ExternalLink, external: true },
+    ]
+
     if (!search.trim()) {
       return {
-        pages: [
-          { name: 'Dashboard', href: '/admin', icon: Sparkles },
-          { name: 'Projects', href: '/admin/projects', icon: FolderKanban },
-          { name: 'Services', href: '/admin/services', icon: Wrench },
-          { name: 'Client Inquiries', href: '/admin/contacts', icon: Inbox },
-          { name: 'Blog Posts', href: '/admin/blog', icon: Newspaper },
-          { name: 'Team Members', href: '/admin/team', icon: Users2 },
-          { name: 'Site Settings', href: '/admin/settings', icon: Settings },
-          { name: 'Live Website', href: '/', icon: ExternalLink, external: true },
-        ],
+        pages: allPages,
         projects: [],
         services: [],
         contacts: [],
@@ -77,7 +107,11 @@ export default function CommandPalette() {
     const q = search.toLowerCase()
 
     return {
-      pages: [],
+      pages: allPages.filter(p =>
+        p.name.toLowerCase().includes(q) ||
+        p.href.toLowerCase().includes(q) ||
+        (p.name === 'Stipends & Payslips' && ('salary payroll payment voucher'.includes(q)))
+      ),
       projects: projects.filter(p =>
         p.title?.toLowerCase().includes(q) ||
         p.client_name?.toLowerCase().includes(q) ||

@@ -9,6 +9,9 @@ import {
   Camera,
   Settings,
   HelpCircle,
+  GraduationCap,
+  Layers,
+  CheckSquare,
   Code2,
   Sparkles,
   Cloud,
@@ -20,6 +23,16 @@ import {
   Database,
   Globe,
   Zap,
+  Banknote,
+  MessageSquare,
+  Calendar,
+  Award,
+  Trophy,
+  GitPullRequest,
+  Target,
+  Users,
+  BookOpen,
+  Bell,
 } from 'lucide-react'
 
 // Types
@@ -117,6 +130,24 @@ export const navigationSections: NavigationSection[] = [
       { id: 'services', label: 'Services', href: '/admin/services', icon: Wrench },
       { id: 'team', label: 'Team Members', href: '/admin/team', icon: Users2 },
       { id: 'contacts', label: 'Inbox', href: '/admin/contacts', icon: Inbox },
+    ]
+  },
+  {
+    title: 'Internship CRM',
+    items: [
+      { id: 'crm-applications', label: 'Applications', href: '/admin/crm/applications', icon: GraduationCap },
+      { id: 'crm-batches', label: 'Batches & Squads', href: '/admin/crm/batches', icon: Layers },
+      { id: 'crm-tasks', label: 'Tasks Kanban', href: '/admin/crm/tasks', icon: CheckSquare },
+      { id: 'crm-leaderboard', label: 'XP & Leaderboard', href: '/admin/crm/leaderboard', icon: Trophy },
+      { id: 'crm-reviews', label: 'PR & Code Reviews', href: '/admin/crm/reviews', icon: GitPullRequest },
+      { id: 'crm-evaluations', label: 'Skill Matrix & PPO', href: '/admin/crm/evaluations', icon: Target },
+      { id: 'crm-mentorship', label: '1:1 Mentorship & Retro', href: '/admin/crm/mentorship', icon: Users },
+      { id: 'crm-academy', label: 'Tech Academy (LMS)', href: '/admin/crm/academy', icon: BookOpen },
+      { id: 'crm-standups', label: 'Daily Standups', href: '/admin/crm/standups', icon: MessageSquare },
+      { id: 'crm-leaves', label: 'Leaves & Attendance', href: '/admin/crm/leaves', icon: Calendar },
+      { id: 'crm-payslips', label: 'Stipends & Payslips', href: '/admin/crm/payslips', icon: Banknote },
+      { id: 'crm-certificates', label: 'Certificates & LOR', href: '/admin/crm/certificates', icon: Award },
+      { id: 'crm-integrations', label: 'Slack & Discord Webhooks', href: '/admin/crm/integrations', icon: Bell },
     ]
   },
   {

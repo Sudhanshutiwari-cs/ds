@@ -104,6 +104,8 @@ type ProjectWithDetails = Project & {
   services: string[]
   techStack: string[]
   metrics: Array<{ value: string; label: string }>
+  client?: string
+  liveUrl?: string
 }
 
 // Cache the data fetching
@@ -244,7 +246,7 @@ function mapProjectToUI(project: Project): ProjectWithDetails {
     results: resultsSection?.body || project.results || '',
     services: [], // Services need to be handled differently - see note below
     techStack,
-    metrics,
+    metrics: metrics as any,
     quote: testimonial?.quote_text || '',
     person: testimonial ? 
       `${testimonial.author_name}${testimonial.author_title ? `, ${testimonial.author_title}` : ''}${testimonial.author_company ? ` - ${testimonial.author_company}` : ''}` : '',
@@ -341,7 +343,7 @@ export default async function ProjectPage({ params }: Props) {
       {project.metrics.length > 0 && (
         <section className="px-4 pb-16 sm:px-6 sm:pb-24">
           <div className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-3">
-            {project.metrics.map((metric, index) => (
+            {project.metrics.map((metric: any, index) => (
               <article key={`${metric.label}-${index}`} className="rounded-2xl border border-[#514d57] bg-[#111013] p-7">
                 <strong className="text-4xl font-black" style={{ color: project.accent }}>{metric.value}</strong>
                 <p className="mt-2 text-sm text-[#aaa6b5]">{metric.label}</p>

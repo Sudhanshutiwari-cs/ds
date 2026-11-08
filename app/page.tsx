@@ -663,6 +663,8 @@ export default function Page() {
               <div className="mt-5 flex flex-col gap-3 text-sm text-[#aaa6b5]">
                 <a className="hover:text-[#f7f5ff]" href="/about">About us</a>
                 <a className="hover:text-[#f7f5ff]" href="/#work">Our work</a>
+                <a className="hover:text-[#f7f5ff]" href="/apply">Careers & Internships</a>
+                <a className="hover:text-[#f7f5ff]" href="/portal">Intern Portal</a>
                 <a className="hover:text-[#f7f5ff]" href="/contact">Contact us</a>
               </div>
             </div>
